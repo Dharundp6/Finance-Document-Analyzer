@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  financial-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: financial-rag-api
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - DEBUG=false
+      - VECTOR_DB_PATH=/app/data/vector_db
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Optional: Add monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: unless-stopped
+    profiles:
+      - monitoring
+
+volumes:
+  data:
+  logs:

@@ -1,0 +1,35 @@
+# Core dependencies
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+python-multipart
+
+# Google Gemini
+google-generativeai
+
+# Vector database
+chromadb
+
+# Document processing
+pypdf
+pdfplumber
+python-docx
+openpyxl
+pandas
+
+# Text processing
+unstructured
+
+# Utilities
+tenacity
+python-magic
+aiofiles
+
+# Testing
+pytest
+pytest-asyncio
+httpx
+
+# Development
+python-dotenv
