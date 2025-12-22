@@ -1,0 +1,210 @@
+# ============================================
+# Financial RAG System - Docker Ignore File
+# ============================================
+# This file tells Docker which files to exclude
+# when building the image (similar to .gitignore)
+# ============================================
+
+# ============================================
+# Virtual Environment
+# ============================================
+venv/
+env/
+.venv/
+.ENV/
+ENV/
+virtualenv/
+.python-version
+
+# ============================================
+# Python Cache & Compiled Files
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+*.manifest
+*.spec
+
+# ============================================
+# IDE & Editor Files
+# ============================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*~
+*.sublime-project
+*.sublime-workspace
+.spyderproject
+.spyproject
+*.code-workspace
+.history/
+
+# ============================================
+# Git
+# ============================================
+.git/
+.gitignore
+.gitattributes
+.github/
+
+# ============================================
+# Environment Variables
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+*.env
+!.env.example
+
+# ============================================
+# Data Files (Mounted as Volumes Instead)
+# ============================================
+data/uploads/*
+data/processed/*
+data/vector_db/*
+!data/uploads/.gitkeep
+!data/processed/.gitkeep
+!data/vector_db/.gitkeep
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+*.log.*
+
+# ============================================
+# Model Cache (Downloaded at Runtime)
+# ============================================
+.cache/
+models/
+*.bin
+*.pt
+*.pth
+*.onnx
+*.h5
+sentence_transformers/
+huggingface/
+
+# ============================================
+# Test Files
+# ============================================
+tests/
+test_*.py
+*_test.py
+conftest.py
+pytest.ini
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+coverage.xml
+nosetests.xml
+*.cover
+
+# ============================================
+# Documentation
+# ============================================
+docs/
+*.md
+!README.md
+*.rst
+*.txt
+!requirements.txt
+
+# ============================================
+# Docker Files (Not Needed Inside Container)
+# ============================================
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
+
+# ============================================
+# CI/CD
+# ============================================
+.travis.yml
+.gitlab-ci.yml
+.circleci/
+Jenkinsfile
+azure-pipelines.yml
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.backup
+tmp/
+temp/
+
+# ============================================
+# OS Generated Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Jupyter Notebooks
+# ============================================
+.ipynb_checkpoints/
+*.ipynb
+
+# ============================================
+# Evaluation Results (Generated at Runtime)
+# ============================================
+evaluation/report_*.json
+evaluation/score_history.json
+!evaluation/sample_dataset.json
+
+# ============================================
+# Secrets & Credentials
+# ============================================
+*.pem
+*.key
+*.crt
+*.p12
+secrets/
+credentials/
+service-account*.json
+
+# ============================================
+# Backup Files
+# ============================================
+backup/
+backups/
+*.bak
+*.backup
+*.old
+
+# ============================================
+# Miscellaneous
+# ============================================
+*.sql
+*.sqlite
+*.db
+node_modules/
+npm-debug.log
+yarn-error.log
