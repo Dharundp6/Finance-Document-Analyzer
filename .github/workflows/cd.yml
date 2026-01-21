@@ -77,12 +77,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Generate SBOM
-        uses: anchore/sbom-action@v0
-        with:
-          image: ${{ env.REGISTRY }}/${{ steps.image-name.outputs.name }}@${{ steps.build.outputs.digest }}
-          artifact-name: sbom-${{ github.sha }}.spdx.json
-        continue-on-error: true
+      # SBOM generation removed - can be added back when needed
+      # For now, focus on reliable builds and deployments
 
   deploy-staging:
     name: Deploy to Staging
