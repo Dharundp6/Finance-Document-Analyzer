@@ -8,8 +8,10 @@ python-multipart
 # Google Gemini
 google-generativeai
 
-# Vector database
+# Vector database & Embeddings
 chromadb
+faiss-cpu
+sentence-transformers
 
 # Document processing
 pypdf
