@@ -52,6 +52,12 @@ fixable = ["ALL"]
 "tests/**/*.py" = ["S101", "E501"]
 # Config files may have hardcoded values
 "config/*.py" = ["S105", "S106"]
+# Interactive scripts - utility scripts not critical for production
+"interactive_chat.py" = ["E722", "S113", "S605"]
+"evalution.py" = ["E722", "S113"]
+"evaluate_interactive.py" = ["E722", "S113"]
+# Vector store uses pickle for metadata storage (internal use only)
+"molecules/vector_store.py" = ["S301"]
 
 [lint.isort]
 # isort configuration

@@ -7,11 +7,6 @@ from pathlib import Path
 import magic  # python-magic
 
 from config.settings import settings
-from core.exceptions import (
-    FileSizeExceededError,
-    UnsupportedFileTypeError,
-    ValidationError,
-)
 
 
 class FileValidator:

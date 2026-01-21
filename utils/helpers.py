@@ -24,7 +24,7 @@ def generate_document_id(filename: str, content_hash: str | None = None) -> str:
 
     if content_hash:
         # Use content hash for deduplication
-        return hashlib.md5(f"{filename}:{content_hash}".encode()).hexdigest()
+        return hashlib.sha256(f"{filename}:{content_hash}".encode()).hexdigest()
 
     return str(uuid.uuid4())
 
@@ -93,13 +93,13 @@ def format_currency(
     symbol = symbols.get(currency, currency)
 
     if abs(value) >= 1e12:
-        return f"{symbol}{value/1e12:.2f}T"
+        return f"{symbol}{value / 1e12:.2f}T"
     elif abs(value) >= 1e9:
-        return f"{symbol}{value/1e9:.2f}B"
+        return f"{symbol}{value / 1e9:.2f}B"
     elif abs(value) >= 1e6:
-        return f"{symbol}{value/1e6:.2f}M"
+        return f"{symbol}{value / 1e6:.2f}M"
     elif abs(value) >= 1e3:
-        return f"{symbol}{value/1e3:.2f}K"
+        return f"{symbol}{value / 1e3:.2f}K"
     else:
         return f"{symbol}{value:,.2f}"
 

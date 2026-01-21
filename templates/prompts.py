@@ -5,7 +5,7 @@ Enhanced prompt templates for structured financial document analysis.
 
 class PromptTemplates:
     """Collection of prompt templates for different query types."""
-    
+
     system_instruction = """You are an expert financial analyst assistant.
 Your role is to analyze financial documents and provide accurate, well-structured answers.
 
@@ -98,7 +98,7 @@ FORMAT YOUR RESPONSE AS:
 [One sentence describing the overall trend - increasing/decreasing/stable]
 
 **Period-by-Period Breakdown:**
-• [Period 1]: [Value] 
+• [Period 1]: [Value]
 • [Period 2]: [Value] ([+/-X%] change)
 • [Period 3]: [Value] ([+/-X%] change)
 
@@ -333,16 +333,16 @@ Based on the documents, you might be able to ask about:
     def get_prompt(self, query_type: str) -> str:
         """Get the appropriate prompt template."""
         prompt_map = {
-            'factual': self.factual_prompt,
-            'comparison': self.comparison_prompt,
-            'trend': self.trend_prompt,
-            'list': self.list_prompt,
-            'aggregation': self.aggregation_prompt,
-            'explanation': self.explanation_prompt,
-            'summary': self.summary_prompt,
-            'yes_no': self.yes_no_prompt,
-            'default': self.default_prompt,
-            'no_context': self.no_context_prompt
+            "factual": self.factual_prompt,
+            "comparison": self.comparison_prompt,
+            "trend": self.trend_prompt,
+            "list": self.list_prompt,
+            "aggregation": self.aggregation_prompt,
+            "explanation": self.explanation_prompt,
+            "summary": self.summary_prompt,
+            "yes_no": self.yes_no_prompt,
+            "default": self.default_prompt,
+            "no_context": self.no_context_prompt,
         }
-        
+
         return prompt_map.get(query_type, self.default_prompt)
