@@ -225,7 +225,7 @@ class QueryEngine:
     
     def _format_chunk_for_context(self, result: RetrievalResult) -> str:
         """Format a retrieval result for context."""
-        chunk = result.chunk
+        chunk = result.chunk 
         
         # Build header with source info
         header_parts = []
