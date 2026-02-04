@@ -62,6 +62,7 @@ class Settings(BaseSettings):
     # API Configuration
     api_host: str = Field(default="0.0.0.0", env="API_HOST")
     api_port: int = Field(default=8000, env="API_PORT")
+    cors_origins: str = Field(default="", env="CORS_ORIGINS")
 
     class Config:
         env_file = ".env"
