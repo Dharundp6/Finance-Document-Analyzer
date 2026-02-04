@@ -35,7 +35,7 @@ jobs:
         run: pip install pip-audit
 
       - name: Run pip-audit
-        run: pip-audit -r requirements.txt --format json --output pip-audit-report.json || true
+        run: pip-audit -r requirements.txt --format json --output pip-audit-report.json
 
       - name: Upload dependency report
         uses: actions/upload-artifact@v4
@@ -62,7 +62,7 @@ jobs:
         run: |
           bandit -r . -x ./tests,./venv,./.venv \
             -f json -o bandit-report.json \
-            --severity-level medium || true
+            --severity-level medium
 
       - name: Upload Bandit report
         uses: actions/upload-artifact@v4
@@ -73,7 +73,7 @@ jobs:
       - name: Bandit Summary
         run: |
           bandit -r . -x ./tests,./venv,./.venv \
-            --severity-level medium -f txt || true
+            --severity-level medium -f txt
 
   dockerfile-scan:
     name: Dockerfile Security Scan
@@ -88,9 +88,8 @@ jobs:
           scan-type: 'config'
           scan-ref: '.'
           format: 'table'
-          exit-code: '0'
-          severity: 'CRITICAL,HIGH,MEDIUM'
-        continue-on-error: true
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
 
   secrets-scan:
     name: Secrets Detection
@@ -105,7 +104,6 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
 
   codeql-analysis:
     name: CodeQL Analysis
