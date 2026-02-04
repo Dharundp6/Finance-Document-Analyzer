@@ -38,7 +38,7 @@ jobs:
         run: pip-audit -r requirements.txt --format json --output pip-audit-report.json
 
       - name: Upload dependency report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: dependency-scan-report
           path: pip-audit-report.json
@@ -65,7 +65,7 @@ jobs:
             --severity-level medium
 
       - name: Upload Bandit report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: bandit-report
           path: bandit-report.json
